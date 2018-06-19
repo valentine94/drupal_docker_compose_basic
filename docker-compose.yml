@@ -9,6 +9,8 @@ services:
       MYSQL_DATABASE: drupal
       MYSQL_USER: drupal
       MYSQL_PASSWORD: drupal
+    ports:
+      - 3307:3306
 
   php:
     image: wodby/drupal-php:7.2-4.5.1
