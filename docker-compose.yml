@@ -20,7 +20,7 @@ services:
       PHP_HOST_NAME: localhost:8000
       PHP_SENDMAIL_PATH: /usr/sbin/sendmail -t -i -S mailhog:1025
     volumes:
-      # Note: ":cache" option is working on MacOS and OSX systems only!
+      # Note: ":cached" option is working on MacOS and OSX systems only!
       - ./web:/var/www/html:cached
       - ./config:/var/www/config:cached
 
