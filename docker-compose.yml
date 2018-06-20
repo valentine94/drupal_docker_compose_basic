@@ -16,9 +16,11 @@ services:
     image: wodby/drupal-php:7.2-4.5.1
     environment:
       PHP_SITE_NAME: dev
+      # This is the URL to access the Drupal site.
       PHP_HOST_NAME: localhost:8000
       PHP_SENDMAIL_PATH: /usr/sbin/sendmail -t -i -S mailhog:1025
     volumes:
+      # Note: ":cache" option is working on MacOS and OSX systems only!
       - ./web:/var/www/html:cached
       - ./config:/var/www/config:cached
 
@@ -28,6 +30,7 @@ services:
       NGINX_SERVER_NAME: localhost
       NGINX_BACKEND_HOST: php
       NGINX_UPSTREAM_NAME: php
+      # For using images from PROD.
       # NGINX_DRUPAL_FILE_PROXY_URL: https://example.com
       DRUPAL_VERSION: 8
     depends_on:
